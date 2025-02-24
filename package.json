@@ -1,5 +1,5 @@
 {
-  "name": "discord-app",
+  "name": "qrcodeweb",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bootstrap": "^5.3.3",
+    "@picocss/pico": "github:picocss/pico",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "qrcode": "^1.5.4"
