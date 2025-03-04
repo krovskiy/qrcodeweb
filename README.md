@@ -1,8 +1,8 @@
 # qrcodeweb
 
-simple QR Code generator web application built with node.js
+Simple QR Code generator web application built with node.js
 
-## required
+## Required
 
 - node.js 
 - npm
@@ -15,12 +15,12 @@ simple QR Code generator web application built with node.js
     cd qrcodeweb
     ```
 
-2. install
+2. Install
     ```sh
     npm install
     ```
 
-## usage
+## Usage
 
 1. start the server:
     ```sh
