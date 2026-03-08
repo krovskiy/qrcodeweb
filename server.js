@@ -19,18 +19,27 @@ app.get('/', (req, response) =>{
     response.render('index');
 });
 
-app.post("/scan",(req,res)=>{
+app.post("/scan", (req, res) => {
     const input_text = req.body.text;
-    console.log(input_text);
-    qrcode.toDataURL(input_text,(err,src)=>{
+    
+    if (!input_text || input_text.trim().length === 0) {
+        return res.status(400).send('Input text cannot be empty');
+    }
+    
+    if (input_text.length > 2953) {
+        return res.status(400).send('Input text exceeds maximum length');
+    }
+
+    qrcode.toDataURL(input_text, (err, src) => {
         if (err) {
-            res.send('Error generating QR code');
-            return;
-        } else {
-            res.render('scan',{
-            qr_code: src
-        })
+            return res.status(500).send('Error generating QR code');
         }
-    })
-})
+        res.render('scan', { qr_code: src });
+    });
+});
+
+app.use((err, req, res, next) => {
+    res.status(err.status || 500).send('Server error');
+});
+
 app.listen(port, console.log(`Listening on port ${port}`));
