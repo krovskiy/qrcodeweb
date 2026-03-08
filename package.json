@@ -10,12 +10,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@picocss/pico": "github:picocss/pico",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^8.3.0",
-    "qrcode": "^1.5.4",
-    "xss-clean": "^0.1.4"
+    "qrcode": "^1.5.4"
   }
 }
