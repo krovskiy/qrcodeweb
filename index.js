@@ -5,7 +5,7 @@ const path = require('path');
 
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5050;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
@@ -19,13 +19,17 @@ app.get('/', (req, response) =>{
     response.render('index');
 });
 
-app.post("/scan",(req,res)=>{
+app.post("/scan",(req,res, next)=>{
     const input_text = req.body.text;
     console.log(input_text);
     qrcode.toDataURL(input_text,(err,src)=>{
-        res.render('scan',{
+        if (err) {
+            next(err)
+        } else {
+            res.render('scan',{
             qr_code: src
         })
+        }
     })
 })
 app.listen(port, console.log(`Listening on port ${port}`));
