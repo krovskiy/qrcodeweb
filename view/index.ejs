@@ -4,17 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code generator</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        textarea, button {
+            border-color: #2c6c40 !important;
+        }
+
+        textarea:focus, button:focus {
+            border-color: #2c6c40 !important;
+        }
+
+        button {
+            background-color: #4db86f !important;
+            color: #000 !important;
+        }
+
+        button:hover, button:active {
+            background-color: #4db86f !important;
+            border-color: #2c6c40 !important;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>QR Code generator</h1>
+    <main class="container">
+        <div class="header" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <img src="https://media1.tenor.com/m/MVHjDqO2hz4AAAAC/green-yuri-mitsuki-koga.gif" alt="funnypic" style="width: 80px; margin: 30px;"/>
+       
+            <h1>QR Code generator</h1>
+        </div>
+        
         <hr>
-        <form action="/scan" method="POST" class="form">
-            <textarea name="text" class="form-control" id="formControl" rows="3" placeholder="Enter some text"></textarea>
-        <button type="submit" class="mt-4 btn btn-primary btn-lg mr-md-3" type="submit" aria-disabled="true">Generate QR Code</button>
+        <form action="/scan" method="POST">
+            <textarea name="text" id="formControl" rows="3" placeholder="Enter some text"></textarea>
+            <button type="submit">Generate QR Code</button>
         </form>
-    </div> 
+    </main>
 </body>
 </html>
-

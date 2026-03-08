@@ -19,12 +19,13 @@ app.get('/', (req, response) =>{
     response.render('index');
 });
 
-app.post("/scan",(req,res, next)=>{
+app.post("/scan",(req,res)=>{
     const input_text = req.body.text;
     console.log(input_text);
     qrcode.toDataURL(input_text,(err,src)=>{
         if (err) {
-            next(err)
+            res.send('Error generating QR code');
+            return;
         } else {
             res.render('scan',{
             qr_code: src
